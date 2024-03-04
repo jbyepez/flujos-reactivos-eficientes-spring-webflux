@@ -9,5 +9,4 @@ class SpringWebfluxApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
