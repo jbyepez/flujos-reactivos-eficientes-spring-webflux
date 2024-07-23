@@ -6,14 +6,14 @@ import reactor.core.publisher.Mono;
 
 public abstract class UserBusinessBase implements UserBusiness {
 
-    final IdService idService;
-    final FirstNameService firstNameService;
-    final MiddleNameService middleNameService;
-    final LastNameService lastNameService;
-    final LastNameHistoryService lastNameHistoryService;
-    final BirthdateService birthDateService;
-    final AgeService ageService;
-    final NumerologyService numerologyService;
+    private final IdService idService;
+    private final FirstNameService firstNameService;
+    private final MiddleNameService middleNameService;
+    private final LastNameService lastNameService;
+    private final LastNameHistoryService lastNameHistoryService;
+    private final BirthdateService birthDateService;
+    private final AgeService ageService;
+    private final NumerologyService numerologyService;
 
     public UserBusinessBase(IdService idService, FirstNameService firstNameService, MiddleNameService middleNameService, LastNameService lastNameService, LastNameHistoryService lastNameHistoryService, BirthdateService birthDateService, AgeService ageService, NumerologyService numerologyService) {
         this.idService = idService;

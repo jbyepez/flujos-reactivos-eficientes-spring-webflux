@@ -113,21 +113,4 @@ public class User {
         this.lifePathNumber = lifePathNumber;
         return this;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", documentType=" + documentType +
-                ", documentNumber='" + documentNumber + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", lastNameHistory='" + lastNameHistory + '\'' +
-                ", birthDate=" + birthDate +
-                ", age=" + age +
-                ", expressionNumber=" + expressionNumber +
-                ", lifePathNumber=" + lifePathNumber +
-                '}';
-    }
 }
