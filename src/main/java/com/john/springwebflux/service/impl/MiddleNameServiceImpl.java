@@ -7,18 +7,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import static com.john.springwebflux.util.Constants.DELAY_3;
 import static com.john.springwebflux.util.Utils.delayedMono;
 import static java.util.Objects.requireNonNull;
 
 @Service
-public class MiddleNameServiceImpl implements MiddleNameService {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+public class MiddleNameServiceImpl extends ServiceDelays implements MiddleNameService {
+    private static final Logger logger = LoggerFactory.getLogger(MiddleNameServiceImpl.class);
 
     @Override
     public Mono<MiddleName> get(Integer id) {
         logger.info("getting second name");
-        return delayedMono(getMiddleName(id), DELAY_3);
+        return delayedMono(getMiddleName(id), delay3());
     }
 
     private MiddleName getMiddleName(Integer id){

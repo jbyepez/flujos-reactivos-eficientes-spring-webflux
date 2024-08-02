@@ -7,18 +7,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import static com.john.springwebflux.util.Constants.DELAY_1;
 import static com.john.springwebflux.util.Utils.delayedMono;
 import static java.util.Objects.requireNonNull;
 
 @Service
-public class LastNameServiceImpl implements LastNameService {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+public class LastNameServiceImpl extends ServiceDelays implements LastNameService {
+    private static final Logger logger = LoggerFactory.getLogger(LastNameServiceImpl.class);
 
     @Override
     public Mono<Lastname> get(Integer id) {
         logger.info("getting lastname");
-        return delayedMono(getLastname(id), DELAY_1);
+        return delayedMono(getLastname(id), delay1());
     }
 
     private Lastname getLastname(Integer id) {

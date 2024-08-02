@@ -1,10 +1,12 @@
 package com.john.springwebflux.service.impl;
 
 import com.john.springwebflux.model.Age;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.util.ReflectionTestUtils;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
@@ -19,6 +21,11 @@ class AgeServiceImplTest {
 
     @InjectMocks
     private AgeServiceImpl ageService;
+
+    @BeforeEach
+    void setup(){
+        ReflectionTestUtils.setField(ageService, "baseMillis", 0);
+    }
 
     @Test
     void get() {

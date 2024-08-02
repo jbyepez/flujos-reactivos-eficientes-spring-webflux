@@ -9,18 +9,17 @@ import reactor.core.publisher.Mono;
 
 import java.time.LocalDate;
 
-import static com.john.springwebflux.util.Constants.DELAY_1;
 import static com.john.springwebflux.util.Utils.delayedMono;
 import static java.util.Objects.requireNonNull;
 
 @Service
-public class BirthdateServiceImpl implements BirthdateService {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+public class BirthdateServiceImpl extends ServiceDelays implements BirthdateService {
+    private static final Logger logger = LoggerFactory.getLogger(BirthdateServiceImpl.class);
 
     @Override
     public Mono<Birthdate> get(Integer id) {
         logger.info("getting birth date");
-        return delayedMono(getBirthdate(id), DELAY_1);
+        return delayedMono(getBirthdate(id), delay1());
     }
 
     private Birthdate getBirthdate(Integer id){

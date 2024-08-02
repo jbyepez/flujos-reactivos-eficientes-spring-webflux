@@ -1,0 +1,6 @@
+services:
+  base-delay-millis: 0
+
+logging:
+  level:
+    org.springframework.web.reactive.function: TRACE

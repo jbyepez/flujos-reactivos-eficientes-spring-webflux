@@ -10,18 +10,17 @@ import reactor.core.publisher.Mono;
 import java.time.LocalDate;
 import java.time.Period;
 
-import static com.john.springwebflux.util.Constants.DELAY_3;
 import static com.john.springwebflux.util.Utils.delayedMono;
 import static java.util.Objects.requireNonNull;
 
 @Service
-public class AgeServiceImpl implements AgeService {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+public class AgeServiceImpl extends ServiceDelays implements AgeService {
+    private static final Logger logger = LoggerFactory.getLogger(AgeServiceImpl.class);
 
     @Override
     public Mono<Age> get(LocalDate birthDate) {
         logger.info("getting age");
-        return delayedMono(getAge(birthDate), DELAY_3);
+        return delayedMono(getAge(birthDate), delay3());
     }
 
     private Age getAge(LocalDate birthDate){

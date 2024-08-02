@@ -4,10 +4,12 @@ import com.john.springwebflux.model.LastnameHistory;
 import org.assertj.core.api.BDDSoftAssertions;
 import org.assertj.core.api.junit.jupiter.InjectSoftAssertions;
 import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.util.ReflectionTestUtils;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
@@ -18,6 +20,11 @@ class LastNameHistoryServiceImplTest {
     private BDDSoftAssertions soft;
     @InjectMocks
     private LastNameHistoryServiceImpl lastNameHistoryService;
+
+    @BeforeEach
+    void setup(){
+        ReflectionTestUtils.setField(lastNameHistoryService, "baseMillis", 0);
+    }
 
     @Test
     void get() {
