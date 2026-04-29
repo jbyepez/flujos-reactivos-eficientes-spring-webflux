@@ -1,7 +1,7 @@
-package com.john.springwebflux.service.impl;
+package com.john.springwebflux.service;
 
-import com.john.springwebflux.model.MiddleName;
-import com.john.springwebflux.service.MiddleNameService;
+import com.john.springwebflux.service.dto.MiddleName;
+import com.john.springwebflux.business.port.out.MiddleNameService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

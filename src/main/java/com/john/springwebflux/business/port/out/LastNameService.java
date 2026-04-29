@@ -1,6 +1,6 @@
-package com.john.springwebflux.service;
+package com.john.springwebflux.business.port.out;
 
-import com.john.springwebflux.model.Lastname;
+import com.john.springwebflux.service.dto.Lastname;
 import reactor.core.publisher.Mono;
 
 public interface LastNameService {

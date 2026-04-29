@@ -1,11 +1,11 @@
-package com.john.springwebflux.service.impl;
+package com.john.springwebflux.service;
 
 import org.springframework.beans.factory.annotation.Value;
 
 import java.time.Duration;
 
 public abstract class ServiceDelays {
-    @Value("${services.base-delay-millis}")
+    @Value("${service.base-delay-millis}")
     private Integer baseMillis;
 
     Duration delay1(){

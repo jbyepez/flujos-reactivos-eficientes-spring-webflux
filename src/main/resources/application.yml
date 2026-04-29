@@ -1,2 +1,2 @@
-services:
+service:
   base-delay-millis: 1000

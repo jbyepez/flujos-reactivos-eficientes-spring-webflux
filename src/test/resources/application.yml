@@ -1,4 +1,4 @@
-services:
+service:
   base-delay-millis: 0
 
 logging:

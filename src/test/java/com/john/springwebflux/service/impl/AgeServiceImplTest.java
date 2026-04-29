@@ -1,6 +1,7 @@
 package com.john.springwebflux.service.impl;
 
-import com.john.springwebflux.model.Age;
+import com.john.springwebflux.service.AgeServiceImpl;
+import com.john.springwebflux.service.dto.Age;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

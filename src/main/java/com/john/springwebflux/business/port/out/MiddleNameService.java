@@ -1,6 +1,6 @@
-package com.john.springwebflux.service;
+package com.john.springwebflux.business.port.out;
 
-import com.john.springwebflux.model.MiddleName;
+import com.john.springwebflux.service.dto.MiddleName;
 import reactor.core.publisher.Mono;
 
 public interface MiddleNameService {

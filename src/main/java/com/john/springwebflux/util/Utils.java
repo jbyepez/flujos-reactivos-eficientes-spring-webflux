@@ -10,13 +10,9 @@ public class Utils {
 
     private Utils(){}
 
-    public static <T> Mono<T> parallelizedMono(Callable<T> supplier){
-        return Mono.fromCallable(supplier)
-                .subscribeOn(Schedulers.boundedElastic());
-    }
-
     public static <T> Mono<T> delayedMono(T value, Duration delay){
         return reactiveDelay(value, delay);
+        //return Mono.just(blockingDelay(value, delay));
         //return parallelizedMono(() -> blockingDelay(value, delay));
     }
 
@@ -31,5 +27,11 @@ public class Utils {
             throw new RuntimeException(e);
         }
         return value;
+    }
+
+    public static <T> Mono<T> parallelizedMono(Callable<T> supplier){
+        return Mono.fromCallable(supplier)
+                .subscribeOn(Schedulers.parallel());
+                //.subscribeOn(Schedulers.boundedElastic());
     }
 }

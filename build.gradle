@@ -16,7 +16,7 @@ group = 'com.john'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	sourceCompatibility = '22'
+	sourceCompatibility = '21'
 }
 
 repositories {
@@ -51,9 +51,9 @@ jacocoTestReport {
 }
 
 bootRun {
-	jvmArgs = [
+/*	jvmArgs = [
 			'-Dreactor.schedulers.defaultBoundedElasticSize=80000',
 			'-Dreactor.schedulers.defaultBoundedElasticQueueSize=2147483647',
 			'-Dreactor.schedulers.defaultBoundedElasticOnVirtualThreads=true'
-	]
+	]*/
 }

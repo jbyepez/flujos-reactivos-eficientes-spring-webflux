@@ -1,7 +1,7 @@
-package com.john.springwebflux.service.impl;
+package com.john.springwebflux.service;
 
-import com.john.springwebflux.model.FirstName;
-import com.john.springwebflux.service.FirstNameService;
+import com.john.springwebflux.service.dto.FirstName;
+import com.john.springwebflux.business.port.out.FirstNameService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

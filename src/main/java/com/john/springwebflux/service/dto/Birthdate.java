@@ -1,4 +1,4 @@
-package com.john.springwebflux.model;
+package com.john.springwebflux.service.dto;
 
 import java.time.LocalDate;
 

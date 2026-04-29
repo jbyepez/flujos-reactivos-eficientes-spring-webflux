@@ -1,6 +1,7 @@
 package com.john.springwebflux.service.impl;
 
-import com.john.springwebflux.model.LastnameHistory;
+import com.john.springwebflux.service.LastNameHistoryServiceImpl;
+import com.john.springwebflux.service.dto.LastnameHistory;
 import org.assertj.core.api.BDDSoftAssertions;
 import org.assertj.core.api.junit.jupiter.InjectSoftAssertions;
 import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;

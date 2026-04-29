@@ -1,4 +1,4 @@
-package com.john.springwebflux.business;
+package com.john.springwebflux.business.port.in;
 
 import com.john.springwebflux.domain.User;
 import reactor.core.publisher.Mono;

@@ -1,8 +1,8 @@
 package com.john.springwebflux.integration;
 
+import com.john.springwebflux.business.port.out.*;
 import com.john.springwebflux.domain.User;
-import com.john.springwebflux.model.*;
-import com.john.springwebflux.service.*;
+import com.john.springwebflux.service.dto.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

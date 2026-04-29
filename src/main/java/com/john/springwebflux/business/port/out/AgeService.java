@@ -1,6 +1,6 @@
-package com.john.springwebflux.service;
+package com.john.springwebflux.business.port.out;
 
-import com.john.springwebflux.model.Age;
+import com.john.springwebflux.service.dto.Age;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDate;

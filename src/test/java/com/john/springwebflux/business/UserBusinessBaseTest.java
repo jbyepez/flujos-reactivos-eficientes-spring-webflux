@@ -1,8 +1,8 @@
 package com.john.springwebflux.business;
 
+import com.john.springwebflux.business.port.out.*;
 import com.john.springwebflux.domain.User;
-import com.john.springwebflux.model.*;
-import com.john.springwebflux.service.*;
+import com.john.springwebflux.service.dto.*;
 import org.assertj.core.api.BDDSoftAssertions;
 import org.assertj.core.api.junit.jupiter.InjectSoftAssertions;
 import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;

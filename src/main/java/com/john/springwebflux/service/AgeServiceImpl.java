@@ -1,7 +1,7 @@
-package com.john.springwebflux.service.impl;
+package com.john.springwebflux.service;
 
-import com.john.springwebflux.model.Age;
-import com.john.springwebflux.service.AgeService;
+import com.john.springwebflux.service.dto.Age;
+import com.john.springwebflux.business.port.out.AgeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

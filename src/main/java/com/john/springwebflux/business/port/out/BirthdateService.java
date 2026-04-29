@@ -1,6 +1,6 @@
-package com.john.springwebflux.service;
+package com.john.springwebflux.business.port.out;
 
-import com.john.springwebflux.model.Birthdate;
+import com.john.springwebflux.service.dto.Birthdate;
 import reactor.core.publisher.Mono;
 
 public interface BirthdateService {

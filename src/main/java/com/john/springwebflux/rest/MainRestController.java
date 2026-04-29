@@ -1,6 +1,6 @@
 package com.john.springwebflux.rest;
 
-import com.john.springwebflux.business.UserBusiness;
+import com.john.springwebflux.business.port.in.UserBusiness;
 import com.john.springwebflux.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
