@@ -1,7 +1,6 @@
-package com.john.springwebflux.service.impl;
+package com.john.springwebflux.service;
 
-import com.john.springwebflux.service.LastNameServiceImpl;
-import com.john.springwebflux.service.dto.Lastname;
+import com.john.springwebflux.business.port.out.dto.LastnameHistory;
 import org.assertj.core.api.BDDSoftAssertions;
 import org.assertj.core.api.junit.jupiter.InjectSoftAssertions;
 import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;
@@ -16,30 +15,30 @@ import reactor.test.StepVerifier;
 
 @ExtendWith(MockitoExtension.class)
 @ExtendWith(SoftAssertionsExtension.class)
-class LastNameServiceImplTest {
+class LastNameHistoryServiceImplTest {
     @InjectSoftAssertions
     private BDDSoftAssertions soft;
     @InjectMocks
-    private LastNameServiceImpl lastNameService;
+    private LastNameHistoryServiceImpl lastNameHistoryService;
 
     @BeforeEach
     void setup(){
-        ReflectionTestUtils.setField(lastNameService, "baseMillis", 0);
+        ReflectionTestUtils.setField(lastNameHistoryService, "baseMillis", 0);
     }
 
     @Test
     void get() {
         //given
-        int id = 1;
+        String lastName = "Correa";
 
         //when
-        Mono<Lastname> lastnameMono = lastNameService.get(id);
+        Mono<LastnameHistory> lastnameHistoryMono = lastNameHistoryService.get(lastName);
 
         //then
-        StepVerifier.create(lastnameMono).assertNext(lastname -> {
-            soft.then(lastname).isNotNull();
-            soft.then(lastname.documentId()).isEqualTo(id);
-            soft.then(lastname.lastName()).isNotNull();
+        StepVerifier.create(lastnameHistoryMono).assertNext(lastnameHistory -> {
+            soft.then(lastnameHistory).isNotNull();
+            soft.then(lastnameHistory.lastName()).isEqualTo(lastName);
+            soft.then(lastnameHistory.history()).isNotNull();
         }).verifyComplete();
     }
 }

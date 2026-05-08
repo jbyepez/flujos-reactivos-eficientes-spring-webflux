@@ -1,4 +1,4 @@
-package com.john.springwebflux.service.dto;
+package com.john.springwebflux.business.port.out.dto;
 
 public record Id(
         Integer id,

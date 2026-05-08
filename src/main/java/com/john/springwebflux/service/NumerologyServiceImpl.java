@@ -1,7 +1,7 @@
 package com.john.springwebflux.service;
 
-import com.john.springwebflux.service.dto.Numerology;
 import com.john.springwebflux.business.port.out.NumerologyService;
+import com.john.springwebflux.business.port.out.dto.Numerology;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -17,14 +17,14 @@ public class NumerologyServiceImpl extends ServiceDelays implements NumerologySe
     private static final Logger logger = LoggerFactory.getLogger(NumerologyServiceImpl.class);
 
     @Override
-    public Mono<Numerology> get(String firstName, String secondName, String lastname, LocalDate birthDate) {
+    public Mono<Numerology> get(String firstName, String middleName, String lastname, LocalDate birthDate) {
         logger.info("getting numerology");
-        return delayedMono(getNumerology(firstName, secondName, lastname, birthDate), delay1());
+        return delayedMono(getNumerology(firstName, middleName, lastname, birthDate), delay1());
     }
 
-    private Numerology getNumerology(String firstName, String secondName, String lastname, LocalDate birthDate){
+    private Numerology getNumerology(String firstName, String middleName, String lastname, LocalDate birthDate){
         requireNonNull(firstName);
-        requireNonNull(secondName);
+        requireNonNull(middleName);
         requireNonNull(lastname);
         requireNonNull(birthDate);
         return new Numerology(8, 1);

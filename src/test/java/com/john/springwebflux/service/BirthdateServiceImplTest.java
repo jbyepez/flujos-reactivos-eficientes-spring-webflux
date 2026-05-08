@@ -1,7 +1,6 @@
-package com.john.springwebflux.service.impl;
+package com.john.springwebflux.service;
 
-import com.john.springwebflux.service.BirthdateServiceImpl;
-import com.john.springwebflux.service.dto.Birthdate;
+import com.john.springwebflux.business.port.out.dto.Birthdate;
 import org.assertj.core.api.BDDSoftAssertions;
 import org.assertj.core.api.junit.jupiter.InjectSoftAssertions;
 import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;

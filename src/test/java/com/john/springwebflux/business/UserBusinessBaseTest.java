@@ -1,8 +1,8 @@
 package com.john.springwebflux.business;
 
 import com.john.springwebflux.business.port.out.*;
+import com.john.springwebflux.business.port.out.dto.*;
 import com.john.springwebflux.domain.User;
-import com.john.springwebflux.service.dto.*;
 import org.assertj.core.api.BDDSoftAssertions;
 import org.assertj.core.api.junit.jupiter.InjectSoftAssertions;
 import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;
@@ -91,7 +91,7 @@ class UserBusinessBaseTest {
         //then
         StepVerifier.create(userMono).assertNext(user1 -> {
             soft.then(user1).isSameAs(user);
-            soft.then(user.getSecondName()).isEqualTo(middleName.secondName());
+            soft.then(user.getMiddleName()).isEqualTo(middleName.middleName());
         }).verifyComplete();
     }
 
@@ -166,7 +166,7 @@ class UserBusinessBaseTest {
     @Test
     void addNumerology() {
         //given
-        User user = new User().setFirstName("Pedro").setSecondName("Pablo").setLastName("Perez").setBirthDate(LocalDate.of(2000, 7, 15));
+        User user = new User().setFirstName("Pedro").setMiddleName("Pablo").setLastName("Perez").setBirthDate(LocalDate.of(2000, 7, 15));
         Numerology numerology = new Numerology(7, 7);
         given(numerologyService.get(any(), any(), any(), any())).willReturn(Mono.just(numerology));
 

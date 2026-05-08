@@ -1,7 +1,7 @@
 package com.john.springwebflux.service;
 
-import com.john.springwebflux.service.dto.Id;
 import com.john.springwebflux.business.port.out.IdService;
+import com.john.springwebflux.business.port.out.dto.Id;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,8 @@
 package com.john.springwebflux.integration;
 
 import com.john.springwebflux.business.port.out.*;
+import com.john.springwebflux.business.port.out.dto.*;
 import com.john.springwebflux.domain.User;
-import com.john.springwebflux.service.dto.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -40,7 +40,7 @@ public class StepDefinitions {
     private String docNumber;
     private Integer id;
     private String firstName;
-    private String secondName;
+    private String middleName;
     private String lastName;
     private LocalDate birthDate;
     private Integer age;
@@ -58,14 +58,14 @@ public class StepDefinitions {
             "lastname history {string}, " +
             "life path number {int} " +
             "and expression number {int}")
-    public void aClientWith(String docType, String docNumber, int id, String firstName, String secondName,
+    public void aClientWith(String docType, String docNumber, int id, String firstName, String middleName,
                         String lastName, String birthDate, String lastNameHistory,
                         Integer lifePathNumber, Integer expressionNumber) {
         this.docType = docType.charAt(0);
         this.docNumber = docNumber;
         this.id = id;
         this.firstName = firstName;
-        this.secondName = secondName;
+        this.middleName = middleName;
         this.lastName = lastName;
         this.birthDate = LocalDate.parse(birthDate);
         this.age = Period.between(this.birthDate, LocalDate.now()).getYears();
@@ -78,16 +78,16 @@ public class StepDefinitions {
     private void givenReturnsOfServices(){
         given(idService.get(docType, docNumber)).willReturn(Mono.just(new Id(id, docType, docNumber)));
         given(firstNameService.get(id)).willReturn(Mono.just(new FirstName(id, firstName)));
-        given(middleNameService.get(id)).willReturn(Mono.just(new MiddleName(id, secondName)));
+        given(middleNameService.get(id)).willReturn(Mono.just(new MiddleName(id, middleName)));
         given(lastNameService.get(id)).willReturn(Mono.just(new Lastname(id, lastName)));
         given(birthdateService.get(id)).willReturn(Mono.just(new Birthdate(id, birthDate)));
         given(ageService.get(birthDate)).willReturn(Mono.just(new Age(age)));
         given(lastNameHistoryService.get(lastName)).willReturn(Mono.just(new LastnameHistory(lastName, lastNameHistory)));
-        given(numerologyService.get(firstName, secondName, lastName, birthDate))
+        given(numerologyService.get(firstName, middleName, lastName, birthDate))
                 .willReturn(Mono.just(new Numerology(expressionNumber, lifePathNumber)));
     }
 
-    @When("the client calls GET \\/user")
+    @When("the client calls GET user")
     public void theClientCallsGETUser() {
         responseSpec = testClient.get()
                 .uri("/user?doc-type={docType}&doc-number={docNumber}", docType, docNumber)
@@ -105,7 +105,7 @@ public class StepDefinitions {
                             () -> then(responseBody.getDocumentType()).isEqualTo(docType),
                             () -> then(responseBody.getDocumentNumber()).isEqualTo(docNumber),
                             () -> then(responseBody.getFirstName()).isEqualTo(firstName),
-                            () -> then(responseBody.getSecondName()).isEqualTo(secondName),
+                            () -> then(responseBody.getMiddleName()).isEqualTo(middleName),
                             () -> then(responseBody.getLastName()).isEqualTo(lastName),
                             () -> then(responseBody.getBirthDate()).isEqualTo(birthDate),
                             () -> then(responseBody.getAge()).isEqualTo(age),

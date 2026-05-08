@@ -1,7 +1,7 @@
 package com.john.springwebflux.service;
 
-import com.john.springwebflux.service.dto.MiddleName;
 import com.john.springwebflux.business.port.out.MiddleNameService;
+import com.john.springwebflux.business.port.out.dto.MiddleName;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class MiddleNameServiceImpl extends ServiceDelays implements MiddleNameSe
 
     @Override
     public Mono<MiddleName> get(Integer id) {
-        logger.info("getting second name");
+        logger.info("getting middle name");
         return delayedMono(getMiddleName(id), delay3());
     }
 

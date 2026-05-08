@@ -7,7 +7,7 @@ public class User {
     private Character documentType;
     private String documentNumber;
     private String firstName;
-    private String secondName;
+    private String middleName;
     private String lastName;
     private String lastNameHistory;
     private LocalDate birthDate;
@@ -31,8 +31,8 @@ public class User {
         return firstName;
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getMiddleName() {
+        return middleName;
     }
 
     public String getLastName() {
@@ -79,8 +79,8 @@ public class User {
         return this;
     }
 
-    public User setSecondName(String secondName) {
-        this.secondName = secondName;
+    public User setMiddleName(String middleName) {
+        this.middleName = middleName;
         return this;
     }
 

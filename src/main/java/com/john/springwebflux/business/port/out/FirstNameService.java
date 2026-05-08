@@ -1,6 +1,6 @@
 package com.john.springwebflux.business.port.out;
 
-import com.john.springwebflux.service.dto.FirstName;
+import com.john.springwebflux.business.port.out.dto.FirstName;
 import reactor.core.publisher.Mono;
 
 public interface FirstNameService {

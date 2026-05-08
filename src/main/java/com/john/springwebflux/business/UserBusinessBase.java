@@ -39,7 +39,7 @@ public abstract class UserBusinessBase implements UserBusiness {
 
     Mono<User> addMiddleName(User user) {
         return middleNameService.get(user.getId())
-                .map(secondName -> user.setSecondName(secondName.secondName()));
+                .map(middleName -> user.setMiddleName(middleName.middleName()));
     }
 
     Mono<User> addLastname(User user) {
@@ -63,7 +63,7 @@ public abstract class UserBusinessBase implements UserBusiness {
     }
 
     Mono<User> addNumerology(User user) {
-        return numerologyService.get(user.getFirstName(), user.getSecondName(), user.getLastName(), user.getBirthDate())
+        return numerologyService.get(user.getFirstName(), user.getMiddleName(), user.getLastName(), user.getBirthDate())
                 .map(numerology -> user
                         .setLifePathNumber(numerology.lifePathNumber())
                         .setExpressionNumber(numerology.expressionNumber()));
